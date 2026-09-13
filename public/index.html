@@ -1,0 +1,1480 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>باشگاه و مرکز حرکات اصلاحی نصرتی</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ---------- Design tokens ---------- */
+:root{
+  --navy:#0f2c44;
+  --navy-2:#12324b;
+  --teal:#0fb5a6;
+  --teal-2:#0d9488;
+  --green:#38c98a;
+  --gold:#f2b134;
+  --bg:#f4f8f8;
+  --surface:#ffffff;
+  --ink:#152238;
+  --muted:#66788a;
+  --line:#e1ebee;
+  --line-2:#eef4f5;
+  --danger:#e5484d;
+  --radius-lg:26px;
+  --radius-md:18px;
+  --radius-sm:12px;
+  --shadow-sm:0 4px 14px rgba(15,44,68,.06);
+  --shadow-md:0 14px 40px rgba(15,44,68,.10);
+  --shadow-lg:0 26px 70px rgba(15,44,68,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:'Vazirmatn',Tahoma,Arial,sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+}
+a{text-decoration:none;color:inherit}
+img{max-width:100%}
+.wrap{max-width:1180px;width:92%;margin:auto}
+::selection{background:var(--teal);color:#fff}
+
+/* ---------- Buttons ---------- */
+button,.btn{font:inherit;cursor:pointer;border:0;border-radius:14px;padding:12px 20px;font-size:13.5px;font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:.2s transform,.2s box-shadow,.2s background,.2s opacity;white-space:nowrap}
+.btn:active{transform:scale(.97)}
+.primary{background:linear-gradient(135deg,var(--teal),var(--teal-2));color:#fff;box-shadow:0 10px 24px -8px rgba(15,181,166,.6)}
+.primary:hover{box-shadow:0 14px 30px -8px rgba(15,181,166,.75);transform:translateY(-1px)}
+.outline{background:#fff;border:1px solid var(--line);color:var(--navy)}
+.outline:hover{border-color:var(--teal);color:var(--teal-2)}
+.ghost{background:transparent;color:var(--navy)}
+.dark{background:var(--navy);color:#fff}
+.dark:hover{background:#0b2135}
+.danger{background:#fdeceb;color:var(--danger)}
+.danger:hover{background:#fbdcda}
+.sm{padding:8px 14px;font-size:12px;border-radius:10px}
+.block{width:100%;justify-content:center}
+
+/* ---------- Top bar ---------- */
+.topbar{background:var(--navy);color:#cfe8ec;font-size:12px}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding:8px 0;gap:10px;flex-wrap:wrap}
+.topbar .chips{display:flex;gap:14px;flex-wrap:wrap}
+.topbar .chips span{display:flex;align-items:center;gap:5px}
+
+/* ---------- Header ---------- */
+.header{position:sticky;top:0;z-index:30;background:#ffffffee;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav.mainnav{height:80px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;color:var(--navy)}
+.logo{width:48px;height:48px;border-radius:14px;background:#fff;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;font-weight:900;flex:none;box-shadow:0 8px 18px -6px rgba(15,44,68,.5);overflow:hidden;padding:2px}
+.logo img{width:100%;height:100%;object-fit:contain;border-radius:inherit}
+.brand .txt{display:flex;flex-direction:column;gap:1px}
+.brand .txt b{font-size:15px}
+.brand .txt small{color:var(--teal-2);font-size:10.5px;font-weight:600;letter-spacing:.3px}
+.links{display:flex;gap:26px;font-size:13.5px;font-weight:600;color:var(--navy)}
+.links a{position:relative;padding:4px 0;color:#38455a}
+.links a:hover{color:var(--teal-2)}
+.links a::after{content:'';position:absolute;right:0;bottom:-3px;width:0;height:2px;background:var(--teal);transition:.25s width}
+.links a:hover::after{width:100%}
+.navactions{display:flex;align-items:center;gap:10px}
+.mobilebtn{display:none;background:var(--line-2);color:var(--navy);border-radius:12px;padding:10px 12px}
+.mobilemenu{display:none;position:fixed;inset:0;background:#0f2c44f2;z-index:40;padding:26px;flex-direction:column;gap:6px}
+.mobilemenu.open{display:flex}
+.mobilemenu a,.mobilemenu button{color:#fff;font-size:17px;font-weight:700;padding:14px 6px;border-bottom:1px solid #ffffff22;text-align:right;background:none}
+.mobilemenu .close{align-self:flex-start;background:#ffffff22;border-radius:12px;padding:8px 12px;margin-bottom:10px}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;padding:76px 0 90px;overflow:hidden;background:
+  radial-gradient(circle at 88% 12%,#d6f5ea 0,transparent 32%),
+  radial-gradient(circle at 8% 90%,#dff1fb 0,transparent 30%),
+  linear-gradient(#ffffff,#f3fbfa)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;position:relative;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:6px;background:#e3f8f1;color:#0d8a6f;padding:6px 14px;border-radius:24px;font-size:12px;font-weight:700}
+.hero h1{font-size:clamp(30px,4.6vw,52px);line-height:1.32;margin:16px 0;font-weight:800;color:var(--navy)}
+.hero h1 span{background:linear-gradient(135deg,var(--teal),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--muted);max-width:640px;font-size:15px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.trustrow{display:flex;gap:22px;margin-top:34px;flex-wrap:wrap}
+.trustrow div{font-size:12px;color:var(--muted)}
+.trustrow b{display:block;font-size:22px;color:var(--navy);font-weight:800}
+
+.hero-visual{position:relative}
+.hero-card{background:linear-gradient(160deg,var(--navy),#0a1e30);border-radius:30px;padding:28px;color:#fff;box-shadow:var(--shadow-lg);position:relative;overflow:hidden}
+.hero-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 90% -10%,#0fb5a655,transparent 55%)}
+.hero-card .kicker{display:flex;justify-content:space-between;align-items:center;position:relative;font-size:12px;color:#9fd8d2}
+.hero-card h3{position:relative;font-size:20px;margin:16px 0 6px}
+.hero-card p{position:relative;font-size:12.5px;color:#c9dbe2;margin:0 0 18px}
+.progressbar{position:relative;height:8px;border-radius:20px;background:#ffffff22;overflow:hidden;margin-bottom:6px}
+.progressbar i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--green));width:68%;border-radius:20px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:20px;position:relative}
+.stats div{background:#ffffff14;padding:12px 8px;border-radius:14px;text-align:center;font-size:11px;border:1px solid #ffffff1f}
+.stats b{display:block;font-size:19px;margin-bottom:2px}
+.float-badge{position:absolute;background:#fff;color:var(--navy);border-radius:16px;padding:10px 14px;box-shadow:var(--shadow-md);font-size:12px;font-weight:700;display:flex;align-items:center;gap:8px}
+.float-badge.b1{top:-18px;left:-18px}
+.float-badge.b2{bottom:-16px;right:-14px}
+
+/* ---------- Sections ---------- */
+.section{padding:78px 0}
+.section.alt{background:var(--surface)}
+.head{text-align:center;max-width:740px;margin:0 auto 42px}
+.head h2{font-size:31px;margin:0 0 10px;font-weight:800;color:var(--navy)}
+.head p{color:var(--muted);margin:0;font-size:14.5px}
+
+/* ---------- Cards / Services ---------- */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-md);padding:26px;transition:.25s transform,.25s box-shadow,.25s border-color}
+.card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);border-color:transparent}
+.ico{width:50px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;background:#e6f8f4;margin-bottom:14px}
+.card h3{font-size:16.5px;margin:5px 0;color:var(--navy)}
+.card p{font-size:13px;color:var(--muted);margin:0}
+.tag{display:inline-block;font-size:10.5px;font-weight:700;padding:3px 10px;border-radius:20px;background:#eef4ff;color:#3457c9;margin-bottom:10px}
+.tag.green{background:#e7faf1;color:#0d8a53}
+.tag.gold{background:#fdf3e0;color:#9a6c0c}
+
+/* ---------- Plans / Pricing ---------- */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.plan{background:#fff;border:1px solid var(--line);border-radius:var(--radius-md);padding:28px;position:relative;transition:.25s transform,.25s box-shadow}
+.plan:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
+.plan.featured{border:2px solid var(--teal);box-shadow:var(--shadow-md)}
+.plan .badge{position:absolute;top:-13px;right:24px;background:linear-gradient(135deg,var(--teal),var(--green));color:#fff;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px}
+.plan h3{margin:0 0 4px;color:var(--navy);font-size:17px}
+.plan .price{font-size:28px;font-weight:800;color:var(--teal-2);margin:10px 0}
+.plan .price small{font-size:12px;color:var(--muted);font-weight:500}
+.plan ul{list-style:none;margin:16px 0;padding:0;display:grid;gap:10px}
+.plan ul li{display:flex;gap:8px;font-size:13px;color:#3b4a5c}
+.plan ul li b{color:var(--teal-2)}
+
+/* ---------- Coaches ---------- */
+.coaches{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.coach{background:#fff;border:1px solid var(--line);border-radius:var(--radius-md);padding:20px;text-align:center;transition:.25s transform,.25s box-shadow}
+.coach:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
+.avatar{width:70px;height:70px;border-radius:50%;margin:0 auto 12px;background:linear-gradient(135deg,var(--teal),var(--navy));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:22px}
+.coach h4{margin:4px 0;font-size:14.5px;color:var(--navy)}
+.coach span{font-size:11.5px;color:var(--teal-2);font-weight:600}
+.coach p{font-size:11.5px;color:var(--muted);margin:8px 0 0}
+
+/* ---------- Schedule ---------- */
+.schedule-wrap{background:#fff;border:1px solid var(--line);border-radius:var(--radius-md);overflow:auto;box-shadow:var(--shadow-sm)}
+table.sched{width:100%;border-collapse:collapse;font-size:13px;min-width:640px}
+table.sched th{background:var(--navy);color:#fff;padding:13px 10px;font-weight:700}
+table.sched td{padding:12px 10px;border-bottom:1px solid var(--line-2);text-align:center}
+table.sched tr:last-child td{border-bottom:0}
+table.sched tr:hover td{background:#f7fcfc}
+.pill{display:inline-block;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700;background:#e6f8f4;color:#0d8a6f}
+
+/* ---------- About ---------- */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.list{display:grid;gap:13px;margin-top:22px}
+.list div{display:flex;gap:10px;align-items:flex-start;font-size:13.5px}
+.tick{color:#fff;font-weight:800;background:var(--teal);width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;flex:none;margin-top:2px}
+.about-note{background:linear-gradient(160deg,#fff,#f2fbf9);border:1px solid var(--line);border-radius:var(--radius-lg);padding:30px;box-shadow:var(--shadow-sm)}
+.about-note h3{color:var(--navy);margin-top:0}
+.about-note p{font-size:13.5px;color:var(--muted)}
+
+/* ---------- Articles ---------- */
+.articles{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.article{background:#fff;border:1px solid var(--line);border-radius:var(--radius-md);padding:22px;transition:.25s transform,.25s box-shadow}
+.article:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.article .date{font-size:11px;color:var(--teal-2);font-weight:700}
+.article h3{margin:6px 0;font-size:16px;color:var(--navy)}
+.article p{font-size:13px;color:var(--muted);margin:0}
+
+/* ---------- Forms ---------- */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
+.form{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:28px;box-shadow:var(--shadow-sm)}
+.form h3{margin-top:0;color:var(--navy)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{font-size:12px;font-weight:700;display:block;margin:0 0 6px;color:#2c3a4d}
+input,textarea,select{width:100%;padding:12px 13px;border:1px solid #d9e3e7;border-radius:12px;font:inherit;font-size:13px;margin-bottom:15px;background:#fbfdfd;transition:.2s border-color,.2s box-shadow}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px #0fb5a622;background:#fff}
+textarea{min-height:100px;resize:vertical}
+.sidecard{background:linear-gradient(160deg,#eef9f6,#fff);border:1px solid var(--line);border-radius:var(--radius-lg);padding:26px}
+.sidecard h3{color:var(--navy);margin-top:0}
+.sidecard p{font-size:13px;color:var(--muted)}
+.mini-list{display:grid;gap:10px;margin-top:16px}
+.mini-list div{display:flex;gap:9px;font-size:12.5px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+
+/* ---------- Footer ---------- */
+.footer{background:var(--navy);color:#c7dde3;padding:54px 0 24px;margin-top:20px}
+.footgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:34px}
+.footer h3,.footer h4{color:#fff}
+.footer h4{font-size:13.5px;margin:0 0 14px}
+.footer p{font-size:12.5px;line-height:2}
+.footer .flinks{display:grid;gap:9px;font-size:12.5px}
+.footer .flinks a:hover{color:var(--teal)}
+.footlogo{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.social{display:flex;gap:8px;margin-top:14px}
+.social a{width:34px;height:34px;border-radius:10px;background:#ffffff14;display:flex;align-items:center;justify-content:center;font-size:14px}
+.social a:hover{background:var(--teal)}
+.admin-link{font-size:11.5px;color:#8fa9b6}
+.copy{border-top:1px solid #ffffff20;margin-top:30px;padding-top:16px;font-size:11.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+/* ---------- Toast ---------- */
+.toast{display:none;position:fixed;left:20px;bottom:20px;background:var(--navy);color:#fff;padding:13px 18px;border-radius:14px;z-index:99;box-shadow:var(--shadow-lg);font-size:13px;font-weight:600;align-items:center;gap:8px}
+
+/* ---------- Admin Modal ---------- */
+.modal{display:none;position:fixed;inset:0;background:#081827c4;z-index:100;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(3px)}
+.modalbox{background:#fff;width:min(430px,96%);border-radius:24px;padding:30px;box-shadow:var(--shadow-lg)}
+.modalbox.wide{width:min(1180px,98%);max-height:94vh;overflow:auto;padding:0}
+.loginhead{text-align:center;margin-bottom:20px}
+.loginhead .logo{margin:0 auto 12px}
+.loginhead h2{margin:0 0 4px;color:var(--navy);font-size:19px}
+.loginhead p{margin:0;font-size:12.5px;color:var(--muted)}
+
+/* ---------- Admin App layout ---------- */
+.admin-app{display:grid;grid-template-columns:250px 1fr;min-height:640px}
+.admin-side{background:var(--navy);color:#dfeef2;padding:22px 16px;display:flex;flex-direction:column;border-radius:24px 0 0 24px}
+.admin-side .abrand{display:flex;align-items:center;gap:10px;padding:0 8px 20px;border-bottom:1px solid #ffffff1f;margin-bottom:16px}
+.admin-side .abrand b{font-size:13.5px}
+.admin-side .abrand small{display:block;color:#8fd6cb;font-size:10px}
+.anav{display:grid;gap:4px;flex:1}
+.anav button{background:none;color:#c8dde3;justify-content:flex-start;padding:11px 14px;border-radius:12px;font-size:13px;font-weight:600;width:100%}
+.anav button span.ic{width:20px;text-align:center}
+.anav button:hover{background:#ffffff10;color:#fff}
+.anav button.active{background:linear-gradient(135deg,var(--teal),var(--teal-2));color:#fff}
+.admin-side .logout{margin-top:10px}
+.admin-main{padding:26px 30px;background:#fafdfd;border-radius:0 24px 24px 0}
+.amhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;gap:10px;flex-wrap:wrap}
+.amhead h2{margin:0;font-size:19px;color:var(--navy)}
+.amhead p{margin:2px 0 0;font-size:12px;color:var(--muted)}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;position:relative;overflow:hidden}
+.kpi b{font-size:23px;display:block;color:var(--navy)}
+.kpi span{font-size:11.5px;color:var(--muted)}
+.kpi .ic{position:absolute;left:12px;top:14px;font-size:22px;opacity:.35}
+.adminpanel{display:none}
+.adminpanel.active{display:block}
+.tablewrap{overflow:auto;background:#fff;border:1px solid var(--line);border-radius:16px}
+.table{width:100%;border-collapse:collapse;font-size:12.5px;min-width:640px}
+.table th,.table td{padding:11px 12px;border-bottom:1px solid var(--line-2);white-space:nowrap;text-align:right}
+.table th{background:#f3f8f8;font-weight:700;color:#2c3a4d}
+.table tr:last-child td{border-bottom:0}
+.table tr:hover td{background:#f8fcfc}
+.status{display:inline-block;font-size:10.5px;font-weight:700;padding:3px 10px;border-radius:20px}
+.status.ok{background:#e6f8ee;color:#0d8a53}
+.status.warn{background:#fdf3e0;color:#9a6c0c}
+.status.off{background:#fdeceb;color:var(--danger)}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;justify-content:space-between;align-items:center}
+.toolbar .search{max-width:260px;margin:0}
+.rowbtns{display:flex;gap:6px}
+.panel-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:20px;align-items:start}
+.panel-form{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px}
+.panel-form h3{margin-top:0;font-size:14.5px;color:var(--navy)}
+.empty{padding:30px;text-align:center;color:var(--muted);font-size:13px}
+
+/* ---------- Jalali date picker ---------- */
+input.jalali-date{cursor:pointer;background:#fbfdfd url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%2366788a" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>') left 12px center/16px no-repeat}
+.jdp-popup{position:absolute;z-index:200;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-md);padding:14px;width:280px;font-size:12.5px}
+.jdp-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-weight:700;color:var(--navy)}
+.jdp-nav{background:none;border:0;cursor:pointer;font-size:15px;color:var(--navy);padding:4px 10px;border-radius:8px;font-weight:700}
+.jdp-nav:hover{background:#eef6f6}
+.jdp-weekdays{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;text-align:center;font-size:10.5px;color:var(--muted);margin-bottom:4px}
+.jdp-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;text-align:center}
+.jdp-day{padding:7px 0;border-radius:8px;cursor:pointer;background:none;border:0;font:inherit;color:var(--ink)}
+.jdp-day:hover{background:#e6f8f4}
+.jdp-day.today{border:1px solid var(--teal);font-weight:700}
+.jdp-day.selected{background:var(--teal);color:#fff}
+.jdp-foot{display:flex;justify-content:space-between;margin-top:10px;padding-top:8px;border-top:1px solid var(--line-2)}
+.jdp-foot button{background:none;border:0;color:var(--teal-2);font:inherit;font-weight:700;cursor:pointer;padding:4px}
+
+/* ---------- Utility ---------- */
+.flex-gap{display:flex;gap:10px;flex-wrap:wrap}
+.center{text-align:center}
+.mt0{margin-top:0}
+
+/* ---------- Responsive ---------- */
+@media(max-width:960px){
+  .cards,.articles,.coaches{grid-template-columns:1fr 1fr}
+  .plans{grid-template-columns:1fr}
+  .admin-app{grid-template-columns:1fr}
+  .admin-side{border-radius:24px 24px 0 0;flex-direction:row;overflow:auto;align-items:center}
+  .admin-side .abrand{border-bottom:0;border-left:1px solid #ffffff1f;margin-bottom:0;padding:0 14px}
+  .anav{display:flex}
+  .admin-main{border-radius:0 0 24px 24px}
+  .kpis{grid-template-columns:1fr 1fr}
+  .panel-grid{grid-template-columns:1fr}
+}
+@media(max-width:850px){
+  .links{display:none}
+  .mobilebtn{display:block}
+  .hero-grid,.about-grid,.form-grid{grid-template-columns:1fr}
+  .footgrid{grid-template-columns:1fr 1fr}
+  .hero-visual{order:-1}
+}
+@media(max-width:560px){
+  .cards,.articles,.coaches,.two,.kpis{grid-template-columns:1fr}
+  .topbar .wrap{justify-content:center;text-align:center}
+  .topbar .chips span:first-child{display:none}
+  .hero{padding:50px 0 60px}
+  .section{padding:54px 0}
+  .brand .txt b{font-size:13px}
+  .footgrid{grid-template-columns:1fr}
+  .float-badge{display:none}
+}
+@media print{
+  .topbar,.header,.footer,.no-print{display:none!important}
+  .modal{position:static;background:#fff;padding:0}
+  .modalbox{box-shadow:none;width:100%;max-height:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= TOP BAR ================= -->
+<div class="topbar"><div class="wrap">
+  <span>باشگاه و مرکز حرکات اصلاحی نصرتی</span>
+  <div class="chips">
+    <span>💪 بدنسازی و تناسب اندام</span>
+    <span>🎯 ارزیابی و حرکات اصلاحی</span>
+    <span>📞 ۰۹۱۲ ۰۰۰ ۰۰۰۰</span>
+  </div>
+</div></div>
+
+<!-- ================= HEADER ================= -->
+<header class="header"><div class="wrap">
+  <nav class="mainnav">
+    <a class="brand" href="#home">
+      <div class="logo"><img src="assets/logo.png" alt="لوگوی نصرتی"></div>
+      <div class="txt"><b>باشگاه و مرکز حرکات اصلاحی نصرتی</b><small>NOSRATI · GYM &amp; CORRECTIVE CENTER</small></div>
+    </a>
+    <div class="links">
+      <a href="#services">خدمات</a>
+      <a href="#plans">اشتراک‌ها</a>
+      <a href="#coaches">مربیان</a>
+      <a href="#schedule">برنامه کلاس‌ها</a>
+      <a href="#about">درباره مرکز</a>
+      <a href="#articles">مطالب</a>
+      <a href="#contact">تماس</a>
+    </div>
+    <div class="navactions">
+      <a class="btn primary" href="#join">ثبت‌نام باشگاه</a>
+      <button class="btn outline" onclick="Admin.open()">🔐 مدیریت</button>
+      <button class="btn mobilebtn" onclick="toggleMobile(true)">☰</button>
+    </div>
+  </nav>
+</div></header>
+
+<div class="mobilemenu" id="mobileMenu">
+  <button class="close" onclick="toggleMobile(false)">✕ بستن</button>
+  <a href="#services" onclick="toggleMobile(false)">خدمات</a>
+  <a href="#plans" onclick="toggleMobile(false)">اشتراک‌ها</a>
+  <a href="#coaches" onclick="toggleMobile(false)">مربیان</a>
+  <a href="#schedule" onclick="toggleMobile(false)">برنامه کلاس‌ها</a>
+  <a href="#about" onclick="toggleMobile(false)">درباره مرکز</a>
+  <a href="#articles" onclick="toggleMobile(false)">مطالب</a>
+  <a href="#referral" onclick="toggleMobile(false)">معرفی به پزشک</a>
+  <a href="#contact" onclick="toggleMobile(false)">تماس</a>
+  <button class="primary" onclick="toggleMobile(false);Admin.open()">🔐 ورود مدیریت</button>
+</div>
+
+<main id="home">
+
+<!-- ================= HERO ================= -->
+<section class="hero"><div class="wrap hero-grid">
+  <div>
+    <span class="eyebrow">💪 حرکت بهتر، بدن قوی‌تر، زندگی سالم‌تر</span>
+    <h1>باشگاه بدنسازی و مرکز <span>حرکات اصلاحی</span> نصرتی</h1>
+    <p>مجموعه نصرتی با ترکیب برنامه‌های حرفه‌ای بدنسازی و خدمات تخصصی ارزیابی وضعیت بدنی و حرکات اصلاحی، مسیر تناسب‌اندام و سلامت حرکتی شما را به‌صورت اختصاصی طراحی و پیگیری می‌کند.</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="#join">ثبت‌نام در باشگاه</a>
+      <a class="btn outline" href="#referral">درخواست ارزیابی اصلاحی</a>
+    </div>
+    <div class="trustrow">
+      <div><b id="trustMembers">+۴۰۰</b>عضو فعال</div>
+      <div><b id="trustCoaches">۶</b>مربی متخصص</div>
+      <div><b>+۸</b>سال سابقه فعالیت</div>
+      <div><b>۴.۹</b>رضایت مراجعین</div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="float-badge b1">🏆 <span>باشگاه منتخب منطقه</span></div>
+    <div class="hero-card">
+      <div class="kicker"><span>برنامه هفتگی شما</span><span>هفته ۲</span></div>
+      <h3>پیشرفت برنامه تمرینی</h3>
+      <p>ارزیابی → طراحی برنامه → اجرا و پیگیری منظم</p>
+      <div class="progressbar"><i></i></div>
+      <div class="stats">
+        <div><b>۰۱</b>ارزیابی</div>
+        <div><b>۰۲</b>برنامه</div>
+        <div><b>۰۳</b>پیگیری</div>
+      </div>
+    </div>
+    <div class="float-badge b2">📈 <span>پیگیری مستمر پیشرفت</span></div>
+  </div>
+</div></section>
+
+<!-- ================= SERVICES ================= -->
+<section class="section" id="services"><div class="wrap">
+  <div class="head"><h2>خدمات مجموعه نصرتی</h2><p>ترکیبی از خدمات باشگاهی و تخصصی حرکات اصلاحی، متناسب با نیاز و هدف هر مراجعه‌کننده.</p></div>
+  <div class="cards">
+    <div class="card"><span class="tag">باشگاه</span><div class="ico">🏋️</div><h3>بدنسازی و تناسب اندام</h3><p>دسترسی به سالن مجهز بدنسازی با برنامه تمرینی اختصاصی زیر نظر مربی.</p></div>
+    <div class="card"><span class="tag">باشگاه</span><div class="ico">🧘</div><h3>کلاس‌های گروهی</h3><p>کلاس‌های گروهی متنوع برای افزایش انگیزه و تعامل بین اعضا.</p></div>
+    <div class="card"><span class="tag">باشگاه</span><div class="ico">🤝</div><h3>مربی‌گری شخصی (PT)</h3><p>جلسات یک‌به‌یک با مربی برای رسیدن سریع‌تر به اهداف تمرینی.</p></div>
+    <div class="card"><span class="tag green">حرکات اصلاحی</span><div class="ico">🧍</div><h3>ارزیابی وضعیت بدنی</h3><p>بررسی وضعیت و الگوهای حرکتی برای شناخت دقیق نیازهای تمرینی.</p></div>
+    <div class="card"><span class="tag green">حرکات اصلاحی</span><div class="ico">🎯</div><h3>حرکات اصلاحی تخصصی</h3><p>طراحی تمرینات هدفمند برای بهبود کیفیت، کنترل و تقارن حرکت.</p></div>
+    <div class="card"><span class="tag green">حرکات اصلاحی</span><div class="ico">📈</div><h3>پیگیری و بازبینی برنامه</h3><p>ثبت روند اجرای برنامه و بازبینی دوره‌ای برای اصلاح مسیر تمرین.</p></div>
+  </div>
+</div></section>
+
+<!-- ================= PLANS ================= -->
+<section class="section alt" id="plans"><div class="wrap">
+  <div class="head"><h2>طرح‌های اشتراک باشگاه</h2><p>اشتراک متناسب با هدف خود را انتخاب کنید؛ طرح‌ها از پنل مدیریت قابل ویرایش هستند.</p></div>
+  <div class="plans" id="plansList"></div>
+</div></section>
+
+<!-- ================= COACHES ================= -->
+<section class="section" id="coaches"><div class="wrap">
+  <div class="head"><h2>مربیان مجموعه</h2><p>تیم مربیان متخصص در بدنسازی و حرکات اصلاحی همراه شما هستند.</p></div>
+  <div class="coaches" id="coachList"></div>
+</div></section>
+
+<!-- ================= SCHEDULE ================= -->
+<section class="section alt" id="schedule"><div class="wrap">
+  <div class="head"><h2>برنامه هفتگی کلاس‌ها</h2><p>زمان‌بندی کلاس‌های گروهی و حرکات اصلاحی؛ از پنل مدیریت قابل بروزرسانی است.</p></div>
+  <div class="schedule-wrap"><table class="sched">
+    <thead><tr><th>عنوان کلاس</th><th>مربی</th><th>روز</th><th>ساعت</th><th>ظرفیت</th></tr></thead>
+    <tbody id="scheduleRows"></tbody>
+  </table></div>
+</div></section>
+
+<!-- ================= ABOUT ================= -->
+<section class="section" id="about"><div class="wrap about-grid">
+  <div>
+    <span class="eyebrow">رویکرد مجموعه</span>
+    <h2 style="font-size:28px;margin:14px 0;color:var(--navy);font-weight:800">باشگاهی حرفه‌ای، همراه با نگاه تخصصی به حرکات اصلاحی</h2>
+    <p style="color:var(--muted)">در نصرتی، تمرین بدنسازی و اصلاح الگوهای حرکتی در کنار هم دیده می‌شوند تا مسیر تناسب‌اندام شما ایمن، اصولی و پایدار باشد.</p>
+    <div class="list">
+      <div><span class="tick">✓</span>ارزیابی وضعیت بدنی پیش از شروع برنامه</div>
+      <div><span class="tick">✓</span>برنامه تمرینی متناسب با شرایط و هدف فرد</div>
+      <div><span class="tick">✓</span>ثبت و پیگیری منظم روند تمرینات</div>
+      <div><span class="tick">✓</span>ارجاع به پزشک در صورت نیاز به بررسی تخصصی</div>
+    </div>
+  </div>
+  <div class="about-note">
+    <h3>نکته مهم</h3>
+    <p>این مجموعه خدمات ورزشی، تمرینی و حرکات اصلاحی ارائه می‌کند و محتوای سایت جایگزین تشخیص، درمان یا نظر پزشک نیست. در صورت نیاز، مراجعه‌کننده برای بررسی پزشکی ارجاع داده می‌شود.</p>
+  </div>
+</div></section>
+
+<!-- ================= ARTICLES ================= -->
+<section class="section alt" id="articles"><div class="wrap">
+  <div class="head"><h2>مطالب آموزشی</h2><p>این بخش از پنل مدیریت قابل افزودن، ویرایش و حذف است.</p></div>
+  <div class="articles" id="articleList"></div>
+</div></section>
+
+<!-- ================= JOIN GYM FORM ================= -->
+<section class="section" id="join"><div class="wrap">
+  <div class="head"><h2>ثبت‌نام در باشگاه</h2><p>فرم زیر را تکمیل کنید تا اطلاعات شما در لیست اعضای باشگاه ثبت شود.</p></div>
+  <div class="form-grid">
+    <form class="form" id="joinForm">
+      <div class="two">
+        <div><label>نام و نام خانوادگی *</label><input name="name" required></div>
+        <div><label>جنسیت</label><select name="gender"><option value="آقا">آقا</option><option value="خانم">خانم</option></select></div>
+      </div>
+      <div class="two">
+        <div><label>شماره تماس *</label><input name="phone" required inputmode="tel"></div>
+        <div><label>تاریخ شروع</label><input name="startDate" class="jalali-date" type="text" readonly placeholder="انتخاب تاریخ" autocomplete="off"></div>
+      </div>
+      <label>نوع اشتراک</label>
+      <select name="plan" id="joinPlanSelect"></select>
+      <label>توضیحات / هدف تمرینی</label>
+      <textarea name="notes" placeholder="مثلاً کاهش وزن، افزایش قدرت، آمادگی عمومی..."></textarea>
+      <button class="btn primary block" type="submit">ثبت‌نام و صدور کارت عضویت</button>
+    </form>
+    <div class="sidecard">
+      <h3>چرا نصرتی را انتخاب کنید؟</h3>
+      <p>عضویت در باشگاه نصرتی یعنی دسترسی به برنامه تمرینی اصولی همراه با نگاه تخصصی به سلامت حرکتی.</p>
+      <div class="mini-list">
+        <div>🏋️ <b>امکانات مجهز</b> — سالن بدنسازی استاندارد</div>
+        <div>🎯 <b>ارزیابی رایگان</b> — بررسی وضعیت بدنی قبل از شروع</div>
+        <div>👥 <b>مربیان مجرب</b> — همراهی در تمام مسیر تمرین</div>
+        <div>📄 <b>کارت عضویت</b> — صدور و چاپ آنی پس از ثبت‌نام</div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ================= REFERRAL FORM ================= -->
+<section class="section alt" id="referral"><div class="wrap">
+  <div class="head"><h2>معرفی مراجعه‌کننده به پزشک</h2><p>اطلاعات فرم در همین مرورگر ذخیره می‌شود و از پنل مدیریت قابل گزارش‌گیری است.</p></div>
+  <div class="form-grid">
+    <form class="form" id="refForm">
+      <div class="two">
+        <div><label>نام و نام خانوادگی *</label><input name="name" required></div>
+        <div><label>سن <span style="color:#0d9488;font-size:11px">(فقط عدد)</span></label><input name="age" type="number" min="1" max="120" step="1" inputmode="numeric" placeholder="مثلاً ۳۵"></div>
+      </div>
+      <div class="two">
+        <div><label>شماره تماس</label><input name="phone" inputmode="tel"></div>
+        <div><label>تاریخ مراجعه</label><input name="date" class="jalali-date" type="text" readonly placeholder="انتخاب تاریخ" autocomplete="off"></div>
+      </div>
+      <label>دلیل مراجعه / موضوع ارجاع *</label>
+      <select name="reason" required>
+        <option value="" selected disabled>لطفاً یک گزینه را انتخاب کنید</option>
+        <option>ارزیابی وضعیت بدنی و پاسچر</option>
+        <option>ناراحتی یا مشکل در ناحیه گردن</option>
+        <option>ناراحتی یا مشکل در ناحیه شانه</option>
+        <option>ناراحتی یا مشکل در ناحیه کمر</option>
+        <option>ناراحتی یا مشکل در ناحیه زانو</option>
+        <option>ناراحتی یا مشکل در اندام تحتانی</option>
+        <option>اختلال در الگوی حرکتی</option>
+        <option>ضعف عضلانی یا کاهش توانایی عملکردی</option>
+        <option>کاهش انعطاف‌پذیری</option>
+        <option>بهبود وضعیت بدنی و پیشگیری</option>
+        <option>طراحی برنامه تمرینی اختصاصی</option>
+        <option>نیاز به بررسی و اظهار نظر پزشک</option>
+        <option>سایر</option>
+      </select>
+      <label>توضیحات تکمیلی</label>
+      <textarea name="notes"></textarea>
+      <button class="btn primary block" type="submit">ثبت و ساخت معرفی‌نامه</button>
+    </form>
+    <div class="sidecard">
+      <h3>معرفی‌نامه رسمی</h3>
+      <p>معرفی‌نامه با نام و آرم مجموعه ساخته می‌شود و برای چاپ روی سربرگ آماده است.</p>
+      <div class="mini-list">
+        <div>📋 اطلاعات پس از ثبت، در «لیست مراجعه‌کنندگان» پنل مدیریت ذخیره می‌شود.</div>
+        <div>📊 امکان تهیه گزارش Excel/CSV یا نسخه چاپی PDF وجود دارد.</div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer" id="contact"><div class="wrap footgrid">
+  <div>
+    <div class="footlogo"><div class="logo"><img src="assets/logo.png" alt="لوگوی نصرتی"></div><h3 style="margin:0;font-size:15px">باشگاه و مرکز حرکات اصلاحی نصرتی</h3></div>
+    <p>ترکیبی از خدمات حرفه‌ای بدنسازی و ارزیابی و حرکات اصلاحی، برای مسیر تناسب‌اندام اصولی و ایمن.</p>
+    <div class="social"><a href="#">📸</a><a href="#">📱</a><a href="#">✈️</a></div>
+  </div>
+  <div>
+    <h4>دسترسی سریع</h4>
+    <div class="flinks"><a href="#services">خدمات</a><a href="#plans">اشتراک‌ها</a><a href="#coaches">مربیان</a><a href="#articles">مطالب</a></div>
+  </div>
+  <div>
+    <h4>خدمات</h4>
+    <div class="flinks"><a href="#join">ثبت‌نام باشگاه</a><a href="#referral">معرفی به پزشک</a><a href="#schedule">برنامه کلاس‌ها</a><a href="#about">درباره مرکز</a></div>
+  </div>
+  <div>
+    <h4>تماس با ما</h4>
+    <p id="footPhone">تلفن: ۰۹۱۲ ۰۰۰ ۰۰۰۰</p>
+    <p id="footAddress">آدرس مرکز را از پنل مدیریت ویرایش کنید.</p>
+    <a class="admin-link" href="#" onclick="Admin.open();return false">🔐 ورود مدیر سایت</a>
+  </div>
+</div>
+<div class="wrap copy"><span>© ۱۴۰۵ باشگاه و مرکز حرکات اصلاحی نصرتی</span><span>طراحی و توسعه اختصاصی</span></div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<!-- ================= ADMIN MODAL ================= -->
+<div class="modal" id="adminModal">
+  <div class="modalbox" id="loginModalBox">
+    <div class="loginhead"><div class="logo" style="width:60px;height:60px"><img src="assets/logo.png" alt="لوگوی نصرتی"></div><h2>ورود به پنل مدیریت</h2><p>برای مدیریت اعضا، مراجعه‌کنندگان و محتوای سایت وارد شوید.</p></div>
+    <label>نام کاربری</label><input id="u" value="admin">
+    <label>رمز عبور</label><input id="pw" type="password" value="Nosrati1405!">
+    <button class="btn primary block" onclick="Admin.login()">ورود</button>
+    <button class="btn ghost block" onclick="Admin.close()" style="margin-top:6px">انصراف</button>
+  </div>
+
+  <div class="modalbox wide" id="dashModalBox" style="display:none">
+    <div class="admin-app">
+      <div class="admin-side">
+        <div class="abrand"><div class="logo" style="width:38px;height:38px"><img src="assets/logo.png" alt="لوگوی نصرتی"></div><div><b>پنل مدیریت نصرتی</b><small>Admin Panel</small></div></div>
+        <div class="anav">
+          <button class="active" data-p="dashPanel" onclick="Admin.showPanel('dashPanel')"><span class="ic">📊</span> داشبورد</button>
+          <button data-p="membersPanel" onclick="Admin.showPanel('membersPanel')"><span class="ic">🧑‍🤝‍🧑</span> اعضای باشگاه</button>
+          <button data-p="patientsPanel" onclick="Admin.showPanel('patientsPanel')"><span class="ic">🩺</span> مراجعه‌کنندگان</button>
+          <button data-p="plansPanel" onclick="Admin.showPanel('plansPanel')"><span class="ic">💳</span> طرح‌های اشتراک</button>
+          <button data-p="coachesPanel" onclick="Admin.showPanel('coachesPanel')"><span class="ic">🏋️</span> مربیان</button>
+          <button data-p="classesPanel" onclick="Admin.showPanel('classesPanel')"><span class="ic">🗓️</span> برنامه کلاس‌ها</button>
+          <button data-p="articlesPanel" onclick="Admin.showPanel('articlesPanel')"><span class="ic">📰</span> مطالب</button>
+          <button data-p="settingsPanel" onclick="Admin.showPanel('settingsPanel')"><span class="ic">⚙️</span> اطلاعات مرکز</button>
+        </div>
+        <button class="dark logout" onclick="Admin.logout()">🚪 خروج</button>
+      </div>
+
+      <div class="admin-main">
+        <!-- Dashboard -->
+        <div id="dashPanel" class="adminpanel active">
+          <div class="amhead"><div><h2>داشبورد مدیریت</h2><p>نمای کلی از وضعیت باشگاه و مرکز حرکات اصلاحی</p></div></div>
+          <div class="kpis">
+            <div class="kpi"><span class="ic">🧑‍🤝‍🧑</span><b id="countMembers">0</b><span>عضو باشگاه</span></div>
+            <div class="kpi"><span class="ic">🩺</span><b id="countPatients">0</b><span>مراجعه‌کننده اصلاحی</span></div>
+            <div class="kpi"><span class="ic">🏋️</span><b id="countCoaches">0</b><span>مربی فعال</span></div>
+            <div class="kpi"><span class="ic">📰</span><b id="countArticles">0</b><span>مطلب منتشرشده</span></div>
+          </div>
+          <div class="tablewrap">
+            <table class="table">
+              <thead><tr><th>آخرین اعضای ثبت‌نامی</th><th>اشتراک</th><th>تاریخ شروع</th><th>وضعیت</th></tr></thead>
+              <tbody id="recentMembersRows"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Members -->
+        <div id="membersPanel" class="adminpanel">
+          <div class="amhead"><div><h2>اعضای باشگاه</h2><p>مدیریت اعضا، اشتراک و وضعیت عضویت</p></div>
+            <div class="flex-gap"><button class="btn outline sm" onclick="Admin.exportMembersCSV()">⬇️ خروجی CSV</button><button class="btn outline sm" onclick="Admin.printMembers()">🖨️ چاپ گزارش</button></div>
+          </div>
+          <div class="panel-grid">
+            <div class="panel-form">
+              <h3 id="memberFormTitle">افزودن عضو جدید</h3>
+              <form id="memberForm">
+                <input type="hidden" id="memberId">
+                <label>نام و نام خانوادگی</label><input id="memberName" required>
+                <label>شماره تماس</label><input id="memberPhone">
+                <label>نوع اشتراک</label><select id="memberPlan"></select>
+                <div class="two">
+                  <div><label>تاریخ شروع</label><input id="memberStart" class="jalali-date" type="text" readonly placeholder="انتخاب تاریخ" autocomplete="off"></div>
+                  <div><label>تاریخ پایان</label><input id="memberEnd" class="jalali-date" type="text" readonly placeholder="انتخاب تاریخ" autocomplete="off"></div>
+                </div>
+                <label>وضعیت</label>
+                <select id="memberStatus"><option value="active">فعال</option><option value="expiring">رو به اتمام</option><option value="expired">منقضی</option></select>
+                <button class="btn primary block">ذخیره عضو</button>
+                <button type="button" class="btn ghost block" onclick="Admin.resetMemberForm()">پاک کردن فرم</button>
+              </form>
+            </div>
+            <div class="tablewrap">
+              <table class="table">
+                <thead><tr><th>نام</th><th>تلفن</th><th>اشتراک</th><th>شروع</th><th>پایان</th><th>وضعیت</th><th></th></tr></thead>
+                <tbody id="memberRows"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Patients (referral) -->
+        <div id="patientsPanel" class="adminpanel">
+          <div class="amhead"><div><h2>مراجعه‌کنندگان حرکات اصلاحی</h2><p>گزارش فرم‌های معرفی به پزشک</p></div>
+            <div class="flex-gap"><button class="btn outline sm" onclick="Admin.exportCSV()">⬇️ خروجی Excel/CSV</button><button class="btn outline sm" onclick="Admin.printPatients()">🖨️ گزارش چاپی/PDF</button><button class="btn danger sm" onclick="Admin.clearPatients()">🗑️ حذف همه</button></div>
+          </div>
+          <div class="tablewrap">
+            <table class="table">
+              <thead><tr><th>نام</th><th>سن</th><th>تلفن</th><th>تاریخ</th><th>موضوع ارجاع</th><th></th></tr></thead>
+              <tbody id="patientRows"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Plans -->
+        <div id="plansPanel" class="adminpanel">
+          <div class="amhead"><div><h2>طرح‌های اشتراک</h2><p>مدیریت پلن‌های قیمت‌گذاری باشگاه</p></div></div>
+          <div class="panel-grid">
+            <div class="panel-form">
+              <h3 id="planFormTitle">افزودن طرح جدید</h3>
+              <form id="planForm">
+                <input type="hidden" id="planId">
+                <label>عنوان طرح</label><input id="planName" required>
+                <label>مدت (روز)</label><input id="planDuration" type="number" min="1">
+                <label>قیمت (تومان)</label><input id="planPrice" type="number" min="0">
+                <label>ویژگی‌ها (هر خط یک مورد)</label><textarea id="planFeatures" placeholder="مثال:&#10;دسترسی آزاد به سالن&#10;یک جلسه ارزیابی رایگان"></textarea>
+                <button class="btn primary block">ذخیره طرح</button>
+                <button type="button" class="btn ghost block" onclick="Admin.resetPlanForm()">پاک کردن فرم</button>
+              </form>
+            </div>
+            <div class="tablewrap">
+              <table class="table">
+                <thead><tr><th>عنوان</th><th>مدت</th><th>قیمت</th><th>عملیات</th></tr></thead>
+                <tbody id="planRows"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coaches -->
+        <div id="coachesPanel" class="adminpanel">
+          <div class="amhead"><div><h2>مربیان</h2><p>مدیریت پروفایل مربیان باشگاه</p></div></div>
+          <div class="panel-grid">
+            <div class="panel-form">
+              <h3 id="coachFormTitle">افزودن مربی جدید</h3>
+              <form id="coachForm">
+                <input type="hidden" id="coachId">
+                <label>نام مربی</label><input id="coachName" required>
+                <label>تخصص</label><input id="coachSpecialty" placeholder="مثال: بدنسازی، حرکات اصلاحی">
+                <label>شماره تماس</label><input id="coachPhone">
+                <button class="btn primary block">ذخیره مربی</button>
+                <button type="button" class="btn ghost block" onclick="Admin.resetCoachForm()">پاک کردن فرم</button>
+              </form>
+            </div>
+            <div class="tablewrap">
+              <table class="table">
+                <thead><tr><th>نام</th><th>تخصص</th><th>تلفن</th><th>عملیات</th></tr></thead>
+                <tbody id="coachRows"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Classes -->
+        <div id="classesPanel" class="adminpanel">
+          <div class="amhead"><div><h2>برنامه کلاس‌ها</h2><p>مدیریت زمان‌بندی هفتگی کلاس‌ها</p></div></div>
+          <div class="panel-grid">
+            <div class="panel-form">
+              <h3 id="classFormTitle">افزودن کلاس جدید</h3>
+              <form id="classForm">
+                <input type="hidden" id="classId">
+                <label>عنوان کلاس</label><input id="classTitle" required>
+                <label>مربی</label><select id="classCoach"></select>
+                <label>روز هفته</label>
+                <select id="classDay"><option>شنبه</option><option>یکشنبه</option><option>دوشنبه</option><option>سه‌شنبه</option><option>چهارشنبه</option><option>پنجشنبه</option><option>جمعه</option></select>
+                <div class="two">
+                  <div><label>ساعت</label><input id="classTime" placeholder="مثال: ۱۸:۰۰ - ۱۹:۰۰"></div>
+                  <div><label>ظرفیت</label><input id="classCapacity" type="number" min="1"></div>
+                </div>
+                <button class="btn primary block">ذخیره کلاس</button>
+                <button type="button" class="btn ghost block" onclick="Admin.resetClassForm()">پاک کردن فرم</button>
+              </form>
+            </div>
+            <div class="tablewrap">
+              <table class="table">
+                <thead><tr><th>عنوان</th><th>مربی</th><th>روز</th><th>ساعت</th><th>ظرفیت</th><th>عملیات</th></tr></thead>
+                <tbody id="classRows"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Articles -->
+        <div id="articlesPanel" class="adminpanel">
+          <div class="amhead"><div><h2>مطالب سایت</h2><p>مدیریت محتوای آموزشی منتشرشده</p></div></div>
+          <div class="panel-grid">
+            <div class="panel-form">
+              <h3 id="articleFormTitle">افزودن مطلب جدید</h3>
+              <form id="articleForm">
+                <input type="hidden" id="articleId">
+                <label>عنوان مطلب</label><input id="articleTitle" required>
+                <label>متن مطلب</label><textarea id="articleBody" required></textarea>
+                <button class="btn primary block">ذخیره مطلب</button>
+                <button type="button" class="btn ghost block" onclick="Admin.resetArticleForm()">پاک کردن فرم</button>
+              </form>
+            </div>
+            <div class="tablewrap">
+              <table class="table">
+                <thead><tr><th>عنوان</th><th>تاریخ</th><th>عملیات</th></tr></thead>
+                <tbody id="articleRows"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Settings -->
+        <div id="settingsPanel" class="adminpanel">
+          <div class="amhead"><div><h2>اطلاعات مرکز</h2><p>اطلاعات نمایش‌داده‌شده در سایت را ویرایش کنید</p></div></div>
+          <form class="form" id="settingsForm" style="max-width:520px">
+            <label>نام مرکز</label><input id="centerName">
+            <label>تلفن</label><input id="centerPhone">
+            <label>آدرس</label><textarea id="centerAddress"></textarea>
+            <button class="btn primary">ذخیره اطلاعات</button>
+          </form>
+
+          <form class="form" id="passwordForm" style="max-width:520px;margin-top:20px">
+            <h3 class="mt0">تغییر رمز عبور مدیر</h3>
+            <label>رمز عبور فعلی</label><input id="currentPassword" type="password" required autocomplete="current-password">
+            <label>رمز عبور جدید</label><input id="newPassword" type="password" required minlength="6" autocomplete="new-password">
+            <label>تکرار رمز عبور جدید</label><input id="confirmPassword" type="password" required minlength="6" autocomplete="new-password">
+            <button class="btn dark">تغییر رمز عبور</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   Nosrati Gym & Corrective Center — frontend (talks to REST API)
+   ============================================================ */
+const LOGO_URL = new URL('assets/logo.png', document.baseURI).href;
+const TOKEN_KEY = 'nosrati_admin_token';
+
+/* ============================================================
+   Jalali (Persian) calendar — conversion + date-picker widget
+   ============================================================ */
+const FA_DIGITS = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+function faDigits(n){ return String(n).replace(/[0-9]/g, d => FA_DIGITS[d]); }
+function pad2(n){ return String(n).padStart(2,'0'); }
+
+function gregorianToJalali(gy, gm, gd) {
+  const g_d_m = [0,31,59,90,120,151,181,212,243,273,304,334];
+  let jy = (gy <= 1600) ? 0 : 979;
+  gy -= (gy <= 1600) ? 621 : 1600;
+  const gy2 = (gm > 2) ? (gy + 1) : gy;
+  let days = (365 * gy) + (Math.floor((gy2 + 3) / 4)) - (Math.floor((gy2 + 99) / 100)) + (Math.floor((gy2 + 399) / 400)) - 80 + gd + g_d_m[gm - 1];
+  jy += 33 * Math.floor(days / 12053);
+  days %= 12053;
+  jy += 4 * Math.floor(days / 1461);
+  days %= 1461;
+  if (days > 365) { jy += Math.floor((days - 1) / 365); days = (days - 1) % 365; }
+  const jm = (days < 186) ? 1 + Math.floor(days / 31) : 7 + Math.floor((days - 186) / 30);
+  const jd = 1 + ((days < 186) ? (days % 31) : ((days - 186) % 30));
+  return [jy, jm, jd];
+}
+
+function jalaliToGregorian(jy, jm, jd) {
+  jy = Number(jy) + 1595;
+  let days = -355668 + (365 * jy) + (Math.floor(jy / 33) * 8) + Math.floor(((jy % 33) + 3) / 4) + Number(jd) + ((jm < 7) ? (jm - 1) * 31 : ((jm - 7) * 30) + 186);
+  let gy = 400 * Math.floor(days / 146097);
+  days %= 146097;
+  if (days > 36524) {
+    gy += 100 * Math.floor(--days / 36524);
+    days %= 36524;
+    if (days >= 365) days++;
+  }
+  gy += 4 * Math.floor(days / 1461);
+  days %= 1461;
+  if (days > 365) { gy += Math.floor((days - 1) / 365); days = (days - 1) % 365; }
+  let gd = days + 1;
+  const leap = (gy % 4 === 0 && gy % 100 !== 0) || (gy % 400 === 0);
+  const sal_a = [0, 31, leap ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  let gm;
+  for (gm = 0; gm < 13; gm++) {
+    const v = sal_a[gm];
+    if (gd <= v) break;
+    gd -= v;
+  }
+  return [gy, gm, gd];
+}
+
+function daysInJalaliMonth(jy, jm){
+  const [gy1,gm1,gd1] = jalaliToGregorian(jy, jm, 1);
+  let jy2 = jy, jm2 = jm + 1;
+  if (jm2 > 12) { jm2 = 1; jy2 = jy + 1; }
+  const [gy2,gm2b,gd2] = jalaliToGregorian(jy2, jm2, 1);
+  const d1 = Date.UTC(gy1, gm1 - 1, gd1);
+  const d2 = Date.UTC(gy2, gm2b - 1, gd2);
+  return Math.round((d2 - d1) / 86400000);
+}
+
+function jalaliWeekday(jy, jm, jd){
+  const [gy,gm,gd] = jalaliToGregorian(jy, jm, jd);
+  return (new Date(gy, gm - 1, gd).getDay() + 1) % 7; // 0=شنبه ... 6=جمعه
+}
+
+const JALALI_MONTHS = ['فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور','مهر','آبان','آذر','دی','بهمن','اسفند'];
+const JALALI_WEEKDAYS = ['ش','ی','د','س','چ','پ','ج'];
+
+function todayJalali(){
+  const now = new Date();
+  return gregorianToJalali(now.getFullYear(), now.getMonth()+1, now.getDate());
+}
+
+const JDP = (() => {
+  let popup = null, activeInput = null, viewY, viewM;
+
+  function ensurePopup(){
+    if (popup) return popup;
+    popup = document.createElement('div');
+    popup.className = 'jdp-popup';
+    popup.style.display = 'none';
+    document.body.appendChild(popup);
+    document.addEventListener('mousedown', e => {
+      if (popup.style.display !== 'none' && !popup.contains(e.target) && e.target !== activeInput) close();
+    });
+    window.addEventListener('scroll', () => { if (popup.style.display !== 'none') position(); }, true);
+    window.addEventListener('resize', () => { if (popup.style.display !== 'none') position(); });
+    return popup;
+  }
+
+  function position(){
+    const r = activeInput.getBoundingClientRect();
+    popup.style.left = (window.scrollX + r.left) + 'px';
+    popup.style.top = (window.scrollY + r.bottom + 6) + 'px';
+  }
+
+  function parseValue(input){
+    const v = (input.value || '').replace(/[۰-۹]/g, d => FA_DIGITS.indexOf(d)).trim();
+    const m = v.match(/^(\d{4})\/(\d{1,2})\/(\d{1,2})$/);
+    if (m) return [Number(m[1]), Number(m[2]), Number(m[3])];
+    return null;
+  }
+
+  function open(input){
+    ensurePopup();
+    activeInput = input;
+    const parsed = parseValue(input);
+    const [ty,tm] = todayJalali();
+    viewY = parsed ? parsed[0] : ty;
+    viewM = parsed ? parsed[1] : tm;
+    render(parsed);
+    popup.style.display = 'block';
+    position();
+  }
+
+  function close(){
+    if (popup) popup.style.display = 'none';
+    activeInput = null;
+  }
+
+  function render(selected){
+    const [ty,tm,td] = todayJalali();
+    const first = jalaliWeekday(viewY, viewM, 1);
+    const total = daysInJalaliMonth(viewY, viewM);
+    let cells = '';
+    for (let i=0;i<first;i++) cells += '<span></span>';
+    for (let d=1; d<=total; d++){
+      const isToday = (viewY===ty && viewM===tm && d===td);
+      const isSel = selected && selected[0]===viewY && selected[1]===viewM && selected[2]===d;
+      cells += `<button type="button" class="jdp-day${isToday?' today':''}${isSel?' selected':''}" data-d="${d}">${faDigits(d)}</button>`;
+    }
+    popup.innerHTML = `
+      <div class="jdp-head">
+        <button type="button" class="jdp-nav" data-nav="next">‹</button>
+        <span>${JALALI_MONTHS[viewM-1]} ${faDigits(viewY)}</span>
+        <button type="button" class="jdp-nav" data-nav="prev">›</button>
+      </div>
+      <div class="jdp-weekdays">${JALALI_WEEKDAYS.map(w=>`<span>${w}</span>`).join('')}</div>
+      <div class="jdp-grid">${cells}</div>
+      <div class="jdp-foot"><button type="button" data-today="1">امروز</button><button type="button" data-clear="1">پاک کردن</button></div>
+    `;
+    popup.querySelector('[data-nav="prev"]').onclick = () => { viewM++; if(viewM>12){viewM=1;viewY++;} render(selected); };
+    popup.querySelector('[data-nav="next"]').onclick = () => { viewM--; if(viewM<1){viewM=12;viewY--;} render(selected); };
+    popup.querySelectorAll('.jdp-day').forEach(btn => {
+      btn.onclick = () => {
+        const d = Number(btn.dataset.d);
+        activeInput.value = `${faDigits(viewY)}/${faDigits(pad2(viewM))}/${faDigits(pad2(d))}`;
+        activeInput.dispatchEvent(new Event('change'));
+        close();
+      };
+    });
+    popup.querySelector('[data-today="1"]').onclick = () => {
+      const [y,m,d] = todayJalali();
+      activeInput.value = `${faDigits(y)}/${faDigits(pad2(m))}/${faDigits(pad2(d))}`;
+      activeInput.dispatchEvent(new Event('change'));
+      close();
+    };
+    popup.querySelector('[data-clear="1"]').onclick = () => {
+      activeInput.value = '';
+      activeInput.dispatchEvent(new Event('change'));
+      close();
+    };
+  }
+
+  function init(root=document){
+    root.querySelectorAll('input.jalali-date').forEach(input => {
+      if (input.__jdpBound) return;
+      input.__jdpBound = true;
+      input.addEventListener('click', () => open(input));
+      input.addEventListener('focus', () => open(input));
+    });
+  }
+
+  return { init };
+})();
+document.addEventListener('DOMContentLoaded', () => JDP.init());
+JDP.init();
+
+function esc(s){ return String(s ?? '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
+function toast(t){ const x = document.getElementById('toast'); x.textContent = t; x.style.display='flex'; clearTimeout(window.__toastTimer); window.__toastTimer = setTimeout(()=>x.style.display='none', 2600); }
+function fmtPrice(n){ return Number(n||0).toLocaleString('fa-IR') + ' تومان'; }
+function statusLabel(s){ return s==='active' ? '<span class="status ok">فعال</span>' : s==='expiring' ? '<span class="status warn">رو به اتمام</span>' : '<span class="status off">منقضی</span>'; }
+
+/* ---------- API helper ---------- */
+async function api(path, opts = {}) {
+  const headers = Object.assign({ 'Content-Type': 'application/json' }, opts.headers || {});
+  const token = localStorage.getItem(TOKEN_KEY);
+  if (token) headers.Authorization = 'Bearer ' + token;
+  const res = await fetch(path, Object.assign({}, opts, { headers }));
+  if (res.status === 204) return null;
+  let body = null;
+  try { body = await res.json(); } catch (e) { /* no body */ }
+  if (!res.ok) {
+    if (res.status === 401) Admin.forceLogout();
+    throw new Error((body && body.error) || 'خطا در ارتباط با سرور');
+  }
+  return body;
+}
+
+/* ---------- Mobile menu ---------- */
+function toggleMobile(open){ document.getElementById('mobileMenu').classList.toggle('open', open); }
+
+/* ---------- Public site rendering ---------- */
+async function renderPublic(){
+  let site;
+  try { site = await api('/api/public/site'); }
+  catch (e) { toast('خطا در بارگذاری اطلاعات سایت'); return; }
+
+  document.getElementById('footPhone').textContent = 'تلفن: ' + (site.settings.phone||'');
+  document.getElementById('footAddress').textContent = site.settings.address||'';
+
+  document.getElementById('articleList').innerHTML = site.articles.map(a =>
+    `<article class="article"><div class="date">${esc(a.date||'')}</div><h3>${esc(a.title)}</h3><p>${esc(a.body)}</p></article>`
+  ).join('') || '<div class="empty">مطلبی ثبت نشده است.</div>';
+
+  document.getElementById('plansList').innerHTML = site.plans.map((p,i) => `
+    <div class="plan ${i===1?'featured':''}">
+      ${i===1?'<span class="badge">محبوب‌ترین</span>':''}
+      <h3>${esc(p.name)}</h3>
+      <div class="price">${fmtPrice(p.price)}<small> / ${esc(p.duration)} روز</small></div>
+      <ul>${(p.features||'').split('\n').filter(Boolean).map(f=>`<li><b>✓</b> ${esc(f)}</li>`).join('')}</ul>
+      <a class="btn primary block" href="#join">انتخاب این طرح</a>
+    </div>`).join('') || '<div class="empty">طرحی ثبت نشده است.</div>';
+
+  const sel = document.getElementById('joinPlanSelect');
+  sel.innerHTML = site.plans.map(p => `<option value="${esc(p.name)}">${esc(p.name)} — ${fmtPrice(p.price)}</option>`).join('');
+
+  document.getElementById('coachList').innerHTML = site.coaches.map(c => `
+    <div class="coach">
+      <div class="avatar">${esc((c.name||'').trim().charAt(0) || '؟')}</div>
+      <h4>${esc(c.name)}</h4>
+      <span>${esc(c.specialty||'')}</span>
+      <p>${esc(c.phone||'')}</p>
+    </div>`).join('') || '<div class="empty">مربی ثبت نشده است.</div>';
+
+  document.getElementById('scheduleRows').innerHTML = site.classes.map(c => {
+    const coach = site.coaches.find(x => x.id == c.coach);
+    return `<tr><td>${esc(c.title)}</td><td>${esc(coach ? coach.name : '-')}</td><td><span class="pill">${esc(c.day)}</span></td><td>${esc(c.time)}</td><td>${esc(c.capacity)} نفر</td></tr>`;
+  }).join('') || `<tr><td colspan="5" class="empty">کلاسی ثبت نشده است.</td></tr>`;
+
+  document.getElementById('trustMembers').textContent = '+' + site.memberCount;
+  document.getElementById('trustCoaches').textContent = site.coachCount;
+}
+
+/* ---------- Print helpers ---------- */
+function openMembershipCard(m){
+  const w = window.open('', '_blank');
+  w.document.write(`<html lang="fa" dir="rtl"><head><meta charset="utf-8"><title>کارت عضویت</title>
+  <style>body{font-family:Tahoma;background:#f3f6f7;margin:0}.page{max-width:620px;margin:30px auto;background:#fff;border-radius:18px;overflow:hidden;border:1px solid #ddd}
+  .head{background:linear-gradient(135deg,#0f2c44,#0fb5a6);color:#fff;padding:26px}.head h1{margin:0;font-size:20px}.head p{margin:4px 0 0;font-size:12px;opacity:.9}
+  .body{padding:24px}.row{display:flex;justify-content:space-between;border-bottom:1px dashed #ddd;padding:10px 0;font-size:13px}.row b{color:#0f2c44}
+  .print{position:fixed;bottom:20px;left:20px;padding:12px 18px;background:#0fb5a6;color:#fff;border:0;border-radius:10px}
+  @media print{.print{display:none}body{background:#fff}.page{margin:0;border:0}}</style></head>
+  <body><div class="page"><div class="head" style="display:flex;justify-content:space-between;align-items:center"><div><h1>باشگاه و مرکز حرکات اصلاحی نصرتی</h1><p>کارت عضویت باشگاه</p></div><img src="${LOGO_URL}" style="width:64px;height:64px;object-fit:contain;background:#fff;border-radius:14px;padding:4px"></div>
+  <div class="body">
+  <div class="row"><span>نام و نام خانوادگی</span><b>${esc(m.name)}</b></div>
+  <div class="row"><span>شماره تماس</span><b>${esc(m.phone)}</b></div>
+  <div class="row"><span>نوع اشتراک</span><b>${esc(m.plan)}</b></div>
+  <div class="row"><span>تاریخ شروع</span><b>${esc(m.startDate)}</b></div>
+  <div class="row"><span>شماره عضویت</span><b>${esc(m.id)}</b></div>
+  </div></div><button class="print" onclick="print()">چاپ / ذخیره PDF</button></body></html>`);
+  w.document.close();
+}
+
+function openReferralLetter(p){
+  const w = window.open('', '_blank');
+  w.document.write(`<html lang="fa" dir="rtl"><head><meta charset="utf-8"><title>معرفی‌نامه به پزشک</title>
+  <style>body{font-family:Tahoma;background:#f3f6f7;margin:0}.page{max-width:850px;min-height:1000px;margin:20px auto;background:#fff;padding:42px;border:1px solid #ddd}
+  .head{display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid #0fb5a6;padding-bottom:16px}
+  .head .logo{width:66px;height:66px;border-radius:16px;background:#fff;padding:4px}
+  .head .logo img{width:100%;height:100%;object-fit:contain;border-radius:inherit}
+  .title h1{margin:0;font-size:22px;color:#0f2c44}.title p{margin:0;color:#0fb5a6}
+  .box{border:1px solid #d8e2e6;border-radius:10px;padding:15px;margin:18px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+  .label{font-weight:bold}.sign{margin-top:90px;display:flex;justify-content:space-between;text-align:center}
+  .print{position:fixed;bottom:20px;left:20px;padding:12px 18px;background:#0fb5a6;color:#fff;border:0;border-radius:10px}
+  @media print{body{background:#fff}.page{margin:0;border:0}.print{display:none}}</style></head>
+  <body><div class="page"><div class="head"><div class="title"><h1>باشگاه و مرکز حرکات اصلاحی نصرتی</h1><p>معرفی‌نامه مراجعه‌کننده به پزشک</p></div><div class="logo"><img src="${LOGO_URL}"></div></div>
+  <div class="box grid">
+  <div><span class="label">نام و نام خانوادگی:</span> ${esc(p.name)}</div>
+  <div><span class="label">سن:</span> ${esc(p.age||'—')}</div>
+  <div><span class="label">شماره تماس:</span> ${esc(p.phone||'—')}</div>
+  <div><span class="label">تاریخ مراجعه:</span> ${esc(p.date)}</div>
+  </div>
+  <div class="box"><span class="label">موضوع / علت ارجاع:</span><p>${esc(p.reason).replaceAll('\n','<br>')}</p></div>
+  <div class="box"><span class="label">توضیحات تکمیلی:</span><p>${esc(p.notes||'—').replaceAll('\n','<br>')}</p></div>
+  <p>احتراماً، نامبرده جهت بررسی و اظهار نظر تخصصی پزشکی معرفی می‌گردد. اطلاعات فوق صرفاً بیانگر اطلاعات ثبت‌شده و یافته‌های قابل گزارش در مرکز است و تشخیص و تصمیم درمانی بر عهده پزشک معالج خواهد بود.</p>
+  <div class="sign"><div>نام و امضای مسئول مرکز<br><br>........................</div><div>مهر مرکز<br><br>........................</div></div>
+  </div><button class="print" onclick="print()">چاپ / ذخیره PDF</button></body></html>`);
+  w.document.close();
+}
+
+function downloadCSV(rows, filename){
+  const csv = '﻿' + rows.map(r => r.map(v => '"' + String(v ?? '').replaceAll('"','""') + '"').join(',')).join('\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([csv], {type:'text/csv;charset=utf-8'}));
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+function printReport(title, headers, rows){
+  const w = window.open('', '_blank');
+  w.document.write(`<html lang="fa" dir="rtl"><head><meta charset="utf-8"><title>${esc(title)}</title>
+  <style>body{font-family:Tahoma;direction:rtl;padding:25px}.logo{width:70px;height:70px;border-radius:16px;background:#fff;padding:4px;box-shadow:0 0 0 1px #eee}.logo img{width:100%;height:100%;object-fit:contain;border-radius:inherit}
+  .head{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #0fb5a6;padding-bottom:10px}
+  table{width:100%;border-collapse:collapse;margin-top:20px;font-size:11px}th,td{border:1px solid #ddd;padding:7px}th{background:#eef6f6}
+  @media print{button{display:none}}</style></head><body>
+  <div class="head"><div><h2>باشگاه و مرکز حرکات اصلاحی نصرتی</h2><p>${esc(title)}</p></div><div class="logo"><img src="${LOGO_URL}"></div></div>
+  <table><tr>${headers.map(h=>`<th>${esc(h)}</th>`).join('')}</tr>
+  ${rows.map(r=>`<tr>${r.map(c=>`<td>${esc(c)}</td>`).join('')}</tr>`).join('')}</table>
+  <p>تعداد رکورد: ${rows.length}</p>
+  <button onclick="print()">چاپ / ذخیره PDF</button></body></html>`);
+  w.document.close();
+}
+
+/* ---------- Join gym form ---------- */
+document.getElementById('joinForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const f = new FormData(e.target);
+  const payload = Object.fromEntries(f.entries());
+  try {
+    const member = await api('/api/members', { method:'POST', body: JSON.stringify(payload) });
+    toast('ثبت‌نام شما با موفقیت انجام شد');
+    openMembershipCard(member);
+    e.target.reset();
+    renderPublic();
+  } catch (err) { toast(err.message); }
+});
+
+/* ---------- Referral form ---------- */
+document.getElementById('refForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const f = new FormData(e.target);
+  const payload = Object.fromEntries(f.entries());
+  try {
+    const patient = await api('/api/patients', { method:'POST', body: JSON.stringify(payload) });
+    toast('مراجعه‌کننده ثبت و معرفی‌نامه ساخته شد');
+    openReferralLetter(patient);
+    e.target.reset();
+  } catch (err) { toast(err.message); }
+});
+
+/* ============================================================
+   Admin module
+   ============================================================ */
+const Admin = (() => {
+  let cache = null; // last bootstrap payload
+
+  function open(){
+    document.getElementById('adminModal').style.display='flex';
+    if (localStorage.getItem(TOKEN_KEY)) {
+      showDashboard();
+    } else {
+      showLogin();
+    }
+  }
+  function close(){ document.getElementById('adminModal').style.display='none'; }
+  function showLogin(){
+    document.getElementById('loginModalBox').style.display='block';
+    document.getElementById('dashModalBox').style.display='none';
+  }
+  function showDashboard(){
+    document.getElementById('loginModalBox').style.display='none';
+    document.getElementById('dashModalBox').style.display='block';
+    refresh();
+  }
+  function forceLogout(){
+    localStorage.removeItem(TOKEN_KEY);
+    showLogin();
+  }
+
+  async function login(){
+    const username = document.getElementById('u').value;
+    const password = document.getElementById('pw').value;
+    try {
+      const { token } = await api('/api/auth/login', { method:'POST', body: JSON.stringify({ username, password }) });
+      localStorage.setItem(TOKEN_KEY, token);
+      showDashboard();
+    } catch (err) { alert(err.message); }
+  }
+  function logout(){ forceLogout(); }
+
+  function showPanel(id){
+    document.querySelectorAll('.adminpanel').forEach(x=>x.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    document.querySelectorAll('.anav button').forEach(b=>b.classList.toggle('active', b.dataset.p===id));
+    render();
+  }
+
+  function fillSelectOptions(sel, items, valueKey, labelFn){
+    sel.innerHTML = items.map(it => `<option value="${esc(it[valueKey])}">${esc(labelFn(it))}</option>`).join('');
+  }
+
+  async function refresh(){
+    try { cache = await api('/api/admin/bootstrap'); }
+    catch (err) { toast(err.message); return; }
+    render();
+  }
+
+  function render(){
+    if (!cache) return;
+    const d = cache;
+
+    document.getElementById('countMembers').textContent = d.members.length;
+    document.getElementById('countPatients').textContent = d.patients.length;
+    document.getElementById('countCoaches').textContent = d.coaches.length;
+    document.getElementById('countArticles').textContent = d.articles.length;
+    document.getElementById('recentMembersRows').innerHTML = d.members.slice(0,6).map(m =>
+      `<tr><td>${esc(m.name)}</td><td>${esc(m.plan||'-')}</td><td>${esc(m.startDate||'-')}</td><td>${statusLabel(m.status||'active')}</td></tr>`
+    ).join('') || `<tr><td colspan="4" class="empty">عضوی ثبت نشده است.</td></tr>`;
+
+    fillSelectOptions(document.getElementById('memberPlan'), d.plans, 'name', p=>p.name);
+    document.getElementById('memberRows').innerHTML = d.members.map((m,i) => `
+      <tr><td>${esc(m.name)}</td><td>${esc(m.phone||'-')}</td><td>${esc(m.plan||'-')}</td><td>${esc(m.startDate||'-')}</td><td>${esc(m.endDate||'-')}</td><td>${statusLabel(m.status||'active')}</td>
+      <td class="rowbtns"><button class="btn outline sm" onclick="Admin.editMember(${i})">ویرایش</button><button class="btn danger sm" onclick="Admin.delMember(${m.id})">حذف</button></td></tr>`
+    ).join('') || `<tr><td colspan="7" class="empty">عضوی ثبت نشده است.</td></tr>`;
+
+    document.getElementById('patientRows').innerHTML = d.patients.map((p,i) => `
+      <tr><td>${esc(p.name)}</td><td>${esc(p.age)}</td><td>${esc(p.phone)}</td><td>${esc(p.date)}</td><td>${esc(p.reason)}</td>
+      <td><button class="btn danger sm" onclick="Admin.delPatient(${p.id})">حذف</button></td></tr>`
+    ).join('') || `<tr><td colspan="6" class="empty">مراجعه‌کننده‌ای ثبت نشده است.</td></tr>`;
+
+    document.getElementById('planRows').innerHTML = d.plans.map((p,i) => `
+      <tr><td>${esc(p.name)}</td><td>${esc(p.duration)} روز</td><td>${fmtPrice(p.price)}</td>
+      <td class="rowbtns"><button class="btn outline sm" onclick="Admin.editPlan(${i})">ویرایش</button><button class="btn danger sm" onclick="Admin.delPlan(${p.id})">حذف</button></td></tr>`
+    ).join('') || `<tr><td colspan="4" class="empty">طرحی ثبت نشده است.</td></tr>`;
+
+    fillSelectOptions(document.getElementById('classCoach'), d.coaches, 'id', c=>c.name);
+    document.getElementById('coachRows').innerHTML = d.coaches.map((c,i) => `
+      <tr><td>${esc(c.name)}</td><td>${esc(c.specialty||'-')}</td><td>${esc(c.phone||'-')}</td>
+      <td class="rowbtns"><button class="btn outline sm" onclick="Admin.editCoach(${i})">ویرایش</button><button class="btn danger sm" onclick="Admin.delCoach(${c.id})">حذف</button></td></tr>`
+    ).join('') || `<tr><td colspan="4" class="empty">مربی ثبت نشده است.</td></tr>`;
+
+    document.getElementById('classRows').innerHTML = d.classes.map((c,i) => {
+      const coach = d.coaches.find(x=>x.id==c.coach);
+      return `<tr><td>${esc(c.title)}</td><td>${esc(coach?coach.name:'-')}</td><td>${esc(c.day)}</td><td>${esc(c.time)}</td><td>${esc(c.capacity)}</td>
+      <td class="rowbtns"><button class="btn outline sm" onclick="Admin.editClass(${i})">ویرایش</button><button class="btn danger sm" onclick="Admin.delClass(${c.id})">حذف</button></td></tr>`;
+    }).join('') || `<tr><td colspan="6" class="empty">کلاسی ثبت نشده است.</td></tr>`;
+
+    document.getElementById('articleRows').innerHTML = d.articles.map((a,i) => `
+      <tr><td>${esc(a.title)}</td><td>${esc(a.date)}</td>
+      <td class="rowbtns"><button class="btn outline sm" onclick="Admin.editArticle(${i})">ویرایش</button><button class="btn danger sm" onclick="Admin.delArticle(${a.id})">حذف</button></td></tr>`
+    ).join('') || `<tr><td colspan="3" class="empty">مطلبی ثبت نشده است.</td></tr>`;
+
+    document.getElementById('centerName').value = d.settings.name;
+    document.getElementById('centerPhone').value = d.settings.phone;
+    document.getElementById('centerAddress').value = d.settings.address;
+  }
+
+  /* ----- Members ----- */
+  function resetMemberForm(){
+    document.getElementById('memberId').value='';
+    document.getElementById('memberForm').reset();
+    document.getElementById('memberFormTitle').textContent='افزودن عضو جدید';
+  }
+  function editMember(i){
+    const m = cache.members[i];
+    document.getElementById('memberId').value=m.id;
+    document.getElementById('memberName').value=m.name||'';
+    document.getElementById('memberPhone').value=m.phone||'';
+    document.getElementById('memberPlan').value=m.plan||'';
+    document.getElementById('memberStart').value='';
+    document.getElementById('memberEnd').value='';
+    document.getElementById('memberStatus').value=m.status||'active';
+    document.getElementById('memberFormTitle').textContent='ویرایش عضو';
+  }
+  async function delMember(id){
+    if(!confirm('این عضو حذف شود؟')) return;
+    try { await api('/api/members/'+id, { method:'DELETE' }); await refresh(); renderPublic(); toast('حذف شد'); }
+    catch(err){ toast(err.message); }
+  }
+  function exportMembersCSV(){
+    const rows = [['نام','تلفن','اشتراک','شروع','پایان','وضعیت'], ...cache.members.map(m=>[m.name,m.phone,m.plan,m.startDate,m.endDate,m.status])];
+    downloadCSV(rows, 'nosrati-members.csv');
+  }
+  function printMembers(){
+    printReport('گزارش اعضای باشگاه', ['ردیف','نام','تلفن','اشتراک','شروع','پایان','وضعیت'],
+      cache.members.map((m,i)=>[i+1,m.name,m.phone,m.plan,m.startDate,m.endDate,m.status]));
+  }
+
+  /* ----- Patients ----- */
+  async function delPatient(id){
+    if(!confirm('این مراجعه‌کننده حذف شود؟')) return;
+    try { await api('/api/patients/'+id, { method:'DELETE' }); await refresh(); toast('حذف شد'); }
+    catch(err){ toast(err.message); }
+  }
+  async function clearPatients(){
+    if(!confirm('تمام اطلاعات مراجعه‌کنندگان حذف شود؟')) return;
+    try { await api('/api/patients', { method:'DELETE' }); await refresh(); }
+    catch(err){ toast(err.message); }
+  }
+  function exportCSV(){
+    const rows = [['نام و نام خانوادگی','سن','تلفن','تاریخ مراجعه','علت ارجاع','توضیحات'], ...cache.patients.map(p=>[p.name,p.age,p.phone,p.date,p.reason,p.notes])];
+    downloadCSV(rows, 'nosrati-patients.csv');
+  }
+  function printPatients(){
+    printReport('گزارش مراجعه‌کنندگان', ['ردیف','نام','سن','تلفن','تاریخ','علت ارجاع'],
+      cache.patients.map((p,i)=>[i+1,p.name,p.age,p.phone,p.date,p.reason]));
+  }
+
+  /* ----- Plans ----- */
+  function resetPlanForm(){ document.getElementById('planId').value=''; document.getElementById('planForm').reset(); document.getElementById('planFormTitle').textContent='افزودن طرح جدید'; }
+  function editPlan(i){
+    const p = cache.plans[i];
+    document.getElementById('planId').value=p.id;
+    document.getElementById('planName').value=p.name||'';
+    document.getElementById('planDuration').value=p.duration||'';
+    document.getElementById('planPrice').value=p.price||'';
+    document.getElementById('planFeatures').value=p.features||'';
+    document.getElementById('planFormTitle').textContent='ویرایش طرح';
+  }
+  async function delPlan(id){
+    if(!confirm('این طرح حذف شود؟')) return;
+    try { await api('/api/plans/'+id, { method:'DELETE' }); await refresh(); renderPublic(); toast('حذف شد'); }
+    catch(err){ toast(err.message); }
+  }
+
+  /* ----- Coaches ----- */
+  function resetCoachForm(){ document.getElementById('coachId').value=''; document.getElementById('coachForm').reset(); document.getElementById('coachFormTitle').textContent='افزودن مربی جدید'; }
+  function editCoach(i){
+    const c = cache.coaches[i];
+    document.getElementById('coachId').value=c.id;
+    document.getElementById('coachName').value=c.name||'';
+    document.getElementById('coachSpecialty').value=c.specialty||'';
+    document.getElementById('coachPhone').value=c.phone||'';
+    document.getElementById('coachFormTitle').textContent='ویرایش مربی';
+  }
+  async function delCoach(id){
+    if(!confirm('این مربی حذف شود؟')) return;
+    try { await api('/api/coaches/'+id, { method:'DELETE' }); await refresh(); renderPublic(); toast('حذف شد'); }
+    catch(err){ toast(err.message); }
+  }
+
+  /* ----- Classes ----- */
+  function resetClassForm(){ document.getElementById('classId').value=''; document.getElementById('classForm').reset(); document.getElementById('classFormTitle').textContent='افزودن کلاس جدید'; }
+  function editClass(i){
+    const c = cache.classes[i];
+    document.getElementById('classId').value=c.id;
+    document.getElementById('classTitle').value=c.title||'';
+    document.getElementById('classCoach').value=c.coach||'';
+    document.getElementById('classDay').value=c.day||'شنبه';
+    document.getElementById('classTime').value=c.time||'';
+    document.getElementById('classCapacity').value=c.capacity||'';
+    document.getElementById('classFormTitle').textContent='ویرایش کلاس';
+  }
+  async function delClass(id){
+    if(!confirm('این کلاس حذف شود؟')) return;
+    try { await api('/api/classes/'+id, { method:'DELETE' }); await refresh(); renderPublic(); toast('حذف شد'); }
+    catch(err){ toast(err.message); }
+  }
+
+  /* ----- Articles ----- */
+  function resetArticleForm(){ document.getElementById('articleId').value=''; document.getElementById('articleForm').reset(); document.getElementById('articleFormTitle').textContent='افزودن مطلب جدید'; }
+  function editArticle(i){
+    const a = cache.articles[i];
+    document.getElementById('articleId').value=a.id;
+    document.getElementById('articleTitle').value=a.title||'';
+    document.getElementById('articleBody').value=a.body||'';
+    document.getElementById('articleFormTitle').textContent='ویرایش مطلب';
+  }
+  async function delArticle(id){
+    if(!confirm('مطلب حذف شود؟')) return;
+    try { await api('/api/articles/'+id, { method:'DELETE' }); await refresh(); renderPublic(); toast('حذف شد'); }
+    catch(err){ toast(err.message); }
+  }
+
+  return {
+    open, close, login, logout, forceLogout, showPanel, refresh,
+    resetMemberForm, editMember, delMember, exportMembersCSV, printMembers,
+    delPatient, clearPatients, exportCSV, printPatients,
+    resetPlanForm, editPlan, delPlan,
+    resetCoachForm, editCoach, delCoach,
+    resetClassForm, editClass, delClass,
+    resetArticleForm, editArticle, delArticle
+  };
+})();
+
+/* ---------- Admin form submits ---------- */
+document.getElementById('memberForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const id = document.getElementById('memberId').value;
+  const rec = {
+    name: document.getElementById('memberName').value,
+    phone: document.getElementById('memberPhone').value,
+    plan: document.getElementById('memberPlan').value,
+    startDate: document.getElementById('memberStart').value || undefined,
+    endDate: document.getElementById('memberEnd').value || undefined,
+    status: document.getElementById('memberStatus').value
+  };
+  try {
+    if(id===''){ await api('/api/members', { method:'POST', body: JSON.stringify(Object.assign({startDate:new Date().toLocaleDateString('fa-IR')}, rec)) }); }
+    else { await api('/api/members/'+id, { method:'PUT', body: JSON.stringify(rec) }); }
+    await Admin.refresh(); renderPublic(); Admin.resetMemberForm(); toast('اطلاعات عضو ذخیره شد');
+  } catch(err){ toast(err.message); }
+});
+
+document.getElementById('planForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const id = document.getElementById('planId').value;
+  const rec = {
+    name: document.getElementById('planName').value,
+    duration: Number(document.getElementById('planDuration').value) || 0,
+    price: Number(document.getElementById('planPrice').value) || 0,
+    features: document.getElementById('planFeatures').value
+  };
+  try {
+    if(id===''){ await api('/api/plans', { method:'POST', body: JSON.stringify(rec) }); }
+    else { await api('/api/plans/'+id, { method:'PUT', body: JSON.stringify(rec) }); }
+    await Admin.refresh(); renderPublic(); Admin.resetPlanForm(); toast('طرح ذخیره شد');
+  } catch(err){ toast(err.message); }
+});
+
+document.getElementById('coachForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const id = document.getElementById('coachId').value;
+  const rec = {
+    name: document.getElementById('coachName').value,
+    specialty: document.getElementById('coachSpecialty').value,
+    phone: document.getElementById('coachPhone').value
+  };
+  try {
+    if(id===''){ await api('/api/coaches', { method:'POST', body: JSON.stringify(rec) }); }
+    else { await api('/api/coaches/'+id, { method:'PUT', body: JSON.stringify(rec) }); }
+    await Admin.refresh(); renderPublic(); Admin.resetCoachForm(); toast('مربی ذخیره شد');
+  } catch(err){ toast(err.message); }
+});
+
+document.getElementById('classForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const id = document.getElementById('classId').value;
+  const rec = {
+    title: document.getElementById('classTitle').value,
+    coach: Number(document.getElementById('classCoach').value) || null,
+    day: document.getElementById('classDay').value,
+    time: document.getElementById('classTime').value,
+    capacity: Number(document.getElementById('classCapacity').value) || 0
+  };
+  try {
+    if(id===''){ await api('/api/classes', { method:'POST', body: JSON.stringify(rec) }); }
+    else { await api('/api/classes/'+id, { method:'PUT', body: JSON.stringify(rec) }); }
+    await Admin.refresh(); renderPublic(); Admin.resetClassForm(); toast('کلاس ذخیره شد');
+  } catch(err){ toast(err.message); }
+});
+
+document.getElementById('articleForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const id = document.getElementById('articleId').value;
+  const rec = {
+    title: document.getElementById('articleTitle').value,
+    body: document.getElementById('articleBody').value
+  };
+  try {
+    if(id===''){ await api('/api/articles', { method:'POST', body: JSON.stringify(rec) }); }
+    else { await api('/api/articles/'+id, { method:'PUT', body: JSON.stringify(rec) }); }
+    await Admin.refresh(); renderPublic(); Admin.resetArticleForm(); toast('مطلب ذخیره شد');
+  } catch(err){ toast(err.message); }
+});
+
+document.getElementById('settingsForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const rec = {
+    name: document.getElementById('centerName').value,
+    phone: document.getElementById('centerPhone').value,
+    address: document.getElementById('centerAddress').value
+  };
+  try { await api('/api/settings', { method:'PUT', body: JSON.stringify(rec) }); renderPublic(); toast('اطلاعات مرکز ذخیره شد'); }
+  catch(err){ toast(err.message); }
+});
+
+document.getElementById('passwordForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const currentPassword = document.getElementById('currentPassword').value;
+  const newPassword = document.getElementById('newPassword').value;
+  const confirmPassword = document.getElementById('confirmPassword').value;
+  if (newPassword !== confirmPassword) { toast('رمز عبور جدید و تکرار آن یکسان نیستند'); return; }
+  try {
+    await api('/api/auth/password', { method:'PUT', body: JSON.stringify({ currentPassword, newPassword }) });
+    e.target.reset();
+    toast('رمز عبور با موفقیت تغییر کرد');
+  } catch (err) { toast(err.message); }
+});
+
+/* ---------- Init ---------- */
+renderPublic();
+</script>
+</body>
+</html>

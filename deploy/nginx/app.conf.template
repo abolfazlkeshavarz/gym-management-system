@@ -1,0 +1,62 @@
+# Rendered by scripts/deploy-host-nginx.sh (envsubst) into
+# /etc/nginx/sites-available/${DOMAIN}.conf on the host.
+#
+# Only this project's domain is touched; other projects on this server keep
+# their own vhost files untouched.
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name ${DOMAIN};
+
+    # Certbot's HTTP-01 challenge, shared webroot across all projects here.
+    location ^~ /.well-known/acme-challenge/ {
+        root /var/www/certbot;
+        default_type "text/plain";
+    }
+
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
+
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    http2 on;
+    server_name ${DOMAIN};
+
+    ssl_certificate     /etc/letsencrypt/live/${DOMAIN}/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/${DOMAIN}/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_prefer_server_ciphers off;
+    ssl_session_cache shared:SSL_${APP_HTTP_PORT}:10m;
+    ssl_session_timeout 1d;
+
+    include /etc/nginx/snippets/nosrati-security-headers.conf;
+
+    # Referral letters and membership cards are opened as print pages; nothing
+    # here is large, but form posts and CSV exports deserve headroom.
+    client_max_body_size 10m;
+
+    access_log /var/log/nginx/${DOMAIN}.access.log;
+    error_log  /var/log/nginx/${DOMAIN}.error.log;
+
+    location / {
+        proxy_pass http://127.0.0.1:${APP_HTTP_PORT};
+        proxy_http_version 1.1;
+        proxy_set_header Host              $host;
+        proxy_set_header X-Real-IP         $remote_addr;
+        proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_read_timeout 60s;
+    }
+
+    # Static assets are immutable enough in practice (logo, fonts) to cache.
+    location ~* \.(png|jpg|jpeg|svg|ico|woff2?)$ {
+        proxy_pass http://127.0.0.1:${APP_HTTP_PORT};
+        proxy_set_header Host $host;
+        expires 30d;
+        add_header Cache-Control "public, immutable";
+    }
+}

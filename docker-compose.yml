@@ -1,0 +1,24 @@
+# This project runs alongside OTHER projects on the same VPS, each on its own
+# (sub)domain. It therefore publishes its port on the loopback interface only
+# (127.0.0.1:${APP_HTTP_PORT}) and lets the HOST's single nginx terminate TLS
+# and reverse-proxy to it — see scripts/deploy-host-nginx.sh. Nothing here
+# binds 80 or 443, so it never collides with another project.
+services:
+  app:
+    build: .
+    image: nosrati-gym:${IMAGE_TAG:-latest}
+    container_name: nosrati-gym
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      # Only used the very first time the database is created; after that the
+      # password lives (hashed) in the database and is changed from the admin
+      # settings panel.
+      ADMIN_INITIAL_PASSWORD: ${ADMIN_INITIAL_PASSWORD:-}
+    volumes:
+      # SQLite database + JWT signing secret. Bind-mounted (not a named
+      # volume) so backups are a plain `cp -r data/`.
+      - ./data:/app/data
+    ports:
+      - "127.0.0.1:${APP_HTTP_PORT:-8091}:3000"

@@ -1,0 +1,10 @@
+# The deployment scripts run on Ubuntu. Checked out with CRLF endings they
+# fail at the shebang with "bad interpreter: /usr/bin/env bash^M", so pin
+# every text file to LF regardless of the platform cloning the repo.
+* text=auto eol=lf
+
+*.sh    text eol=lf
+Makefile text eol=lf
+Dockerfile text eol=lf
+
+*.png binary

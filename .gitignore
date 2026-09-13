@@ -1,0 +1,13 @@
+node_modules/
+
+# Runtime state: the SQLite database and the generated JWT signing secret.
+# Never commit these — the database holds real member and referral data.
+data/
+backups/
+
+# Deployment configuration, including the initial admin password.
+.env
+
+# Image bundles built by scripts/build-images.sh
+dist/
+*.tar.gz

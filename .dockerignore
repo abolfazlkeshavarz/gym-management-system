@@ -1,0 +1,13 @@
+node_modules
+data
+backups
+dist
+.env
+.git
+.gitignore
+.claude
+scripts
+deploy
+Makefile
+*.md
+*.tar.gz
